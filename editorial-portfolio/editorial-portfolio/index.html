@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Портфолио дизайнера — веб-дизайн, брендинг и digital experiences." />
+  <title>Studio Luma — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body data-page="home">
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="home-flower" href="index.html" aria-label="Вернуться на главную">✿</a>
+    <nav class="main-nav" aria-label="Основная навигация">
+      <a class="nav-link is-active" href="index.html">Home</a>
+      <a class="nav-link" href="work.html">Work</a>
+      <a class="nav-link" href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="background-object shape-ring" data-speed="0.12" aria-hidden="true"></div>
+      <div class="background-object shape-flower" data-speed="-0.08" aria-hidden="true">✦</div>
+      <div class="background-object shape-orbit" data-speed="0.2" aria-hidden="true"></div>
+      <div class="background-object shape-dot" data-speed="-0.15" aria-hidden="true"></div>
+
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Independent designer · 2026</p>
+        <h1>
+          Hello, I’m <span class="italic">Luma</span><br>
+          Digital designer<br>
+          &amp; art director
+        </h1>
+      </div>
+
+      <div class="hero-bottom reveal reveal-delay-1">
+        <p class="hero-intro">Создаю выразительные сайты, айдентику и цифровые продукты, в которых строгая структура сочетается с живой типографикой.</p>
+        <div class="social-links" aria-label="Социальные сети">
+          <a href="https://www.behance.net/" target="_blank" rel="noreferrer">Behance ↗</a>
+          <a href="https://t.me/" target="_blank" rel="noreferrer">Telegram ↗</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="selected-work" aria-labelledby="selected-work-title">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Selected projects</p>
+        <h2 id="selected-work-title">A few things<br>I’ve made.</h2>
+      </div>
+
+      <div class="project-list" data-project-list>
+        <a class="project-row reveal" href="work.html#atelier-nova" data-image="assets/images/project-01.svg">
+          <span class="project-number">01</span>
+          <span class="project-name">Atelier Nova</span>
+          <span class="project-category">Webdesign · Art direction</span>
+          <span class="project-arrow">↗</span>
+          <img class="project-mobile-image" src="assets/images/project-01.svg" alt="Превью проекта Atelier Nova">
+        </a>
+        <a class="project-row reveal" href="work.html#mono-journal" data-image="assets/images/project-02.svg">
+          <span class="project-number">02</span>
+          <span class="project-name">Mono Journal</span>
+          <span class="project-category">Editorial · Digital</span>
+          <span class="project-arrow">↗</span>
+          <img class="project-mobile-image" src="assets/images/project-02.svg" alt="Превью проекта Mono Journal">
+        </a>
+        <a class="project-row reveal" href="work.html#soft-signal" data-image="assets/images/project-03.svg">
+          <span class="project-number">03</span>
+          <span class="project-name">Soft Signal</span>
+          <span class="project-category">Branding · Strategy</span>
+          <span class="project-arrow">↗</span>
+          <img class="project-mobile-image" src="assets/images/project-03.svg" alt="Превью проекта Soft Signal">
+        </a>
+        <a class="project-row reveal" href="work.html#north-notes" data-image="assets/images/project-04.svg">
+          <span class="project-number">04</span>
+          <span class="project-name">North Notes</span>
+          <span class="project-category">Product design · UI/UX</span>
+          <span class="project-arrow">↗</span>
+          <img class="project-mobile-image" src="assets/images/project-04.svg" alt="Превью проекта North Notes">
+        </a>
+      </div>
+
+      <div class="hover-preview" aria-hidden="true">
+        <img src="assets/images/project-01.svg" alt="">
+      </div>
+    </section>
+
+    <section class="home-about">
+      <div class="background-object about-cross" data-speed="0.1" aria-hidden="true">✣</div>
+      <p class="eyebrow reveal">Approach</p>
+      <p class="large-statement reveal">Less decoration.<br>More character.<br><span class="italic">Always human.</span></p>
+      <a class="text-link reveal" href="about.html">More about me ↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p class="footer-title">Let’s make something memorable.</p>
+      <a class="footer-email" href="mailto:hello@studio-luma.com">hello@studio-luma.com</a>
+    </div>
+    <div class="footer-meta">
+      <div class="social-links social-links-footer">
+        <a href="https://www.behance.net/" target="_blank" rel="noreferrer">Behance ↗</a>
+        <a href="https://t.me/" target="_blank" rel="noreferrer">Telegram ↗</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram ↗</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+      <p>Studio Luma © <span data-year></span></p>
+    </div>
+  </footer>
+</body>
+</html>
