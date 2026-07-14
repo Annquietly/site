@@ -764,3 +764,6 @@ h1 {
     transform: none !important;
   }
 }
+::selection {
+  background-color: palevioletred;color:#181818
+}
