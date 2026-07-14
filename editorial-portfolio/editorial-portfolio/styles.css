@@ -764,3 +764,14 @@ h1 {
     transform: none !important;
   }
 }
+.variable-text {
+  cursor: default;
+}
+
+.variable-text .letter {
+  display: inline-block;
+  transition:
+    font-variation-settings .25s ease,
+    transform .25s ease,
+    opacity .25s ease;
+}

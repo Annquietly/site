@@ -125,3 +125,42 @@
     });
   });
 })();
+document.querySelectorAll(".variable-text").forEach(text => {
+
+  // Разбиваем текст на буквы
+  text.innerHTML = text.innerHTML.replace(
+    /([^\s<])/g,
+    '<span class="letter">$1</span>'
+  );
+
+  const letters = text.querySelectorAll(".letter");
+
+  document.addEventListener("mousemove", e => {
+
+    letters.forEach(letter => {
+
+      const rect = letter.getBoundingClientRect();
+
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      const distance = Math.hypot(
+        e.clientX - x,
+        e.clientY - y
+      );
+
+      const max = 180;
+
+      const strength = Math.max(0, 1 - distance / max);
+
+      const scale = 1 + strength * 0.35;
+
+      letter.style.transform = `scale(${scale})`;
+
+      letter.style.opacity = 0.55 + strength * 0.45;
+
+    });
+
+  });
+
+});
