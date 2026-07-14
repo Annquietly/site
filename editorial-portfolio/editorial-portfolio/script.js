@@ -125,112 +125,57 @@
     });
   });
 })();
-const proximityText = document.querySelector(".variable-proximity");
+document.addEventListener("DOMContentLoaded", () => {
 
-if (proximityText) {
+  const text = document.querySelector(".variable-proximity");
 
-  function wrapLetters(element) {
-
-    [...element.childNodes].forEach(node => {
-
-      if (node.nodeType === 3) {
-
-        const letters = [...node.textContent].map(char => {
-
-          const span = document.createElement("span");
-
-          span.textContent = char === " " ? "\u00A0" : char;
-
-          return span;
-
-        });
-
-        node.replaceWith(...letters);
-
-      } else if (node.nodeType === 1) {
-
-        wrapLetters(node);
-
-      }
-
-    });
-
+  if (!text) {
+    console.log("no text found");
+    return;
   }
 
-  wrapLetters(proximityText);
+
+  const original = text.innerHTML;
+
+  text.innerHTML = original.replace(
+    /([A-Za-zА-Яа-яЁё])/g,
+    "<span>$1</span>"
+  );
 
 
-  const letters = proximityText.querySelectorAll("span");
-
-  let mouse = {
-    x: -9999,
-    y: -9999,
-    active: false
-  };
+  const letters = text.querySelectorAll("span");
 
 
-  document.addEventListener("pointermove", e => {
-
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-    mouse.active = true;
-
-  });
+  console.log("letters:", letters.length);
 
 
-  document.addEventListener("pointerleave", () => {
-
-    mouse.active = false;
-
-  });
-
-
-  function animate() {
-
-    requestAnimationFrame(animate);
+  document.addEventListener("mousemove", e => {
 
 
     letters.forEach(letter => {
 
-      const rect = letter.getBoundingClientRect();
-
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
+      const box = letter.getBoundingClientRect();
 
 
-      let force = 0;
+      const distance = Math.hypot(
+        e.clientX - (box.left + box.width/2),
+        e.clientY - (box.top + box.height/2)
+      );
 
 
-      if (mouse.active) {
-
-        const distance = Math.hypot(
-          cx - mouse.x,
-          cy - mouse.y
-        );
-
-
-        const radius = 140;
-
-
-        force = Math.max(
-          0,
-          1 - distance / radius
-        );
-
-      }
-
-
-      const weight = 300 + force * 600;
+      const amount = Math.max(
+        0,
+        1 - distance / 150
+      );
 
 
       letter.style.fontVariationSettings =
-        `"wght" ${weight}`;
+        `"wght" ${300 + amount * 600}`;
+
 
     });
 
-  }
 
+  });
 
-  animate();
-
-}
+});

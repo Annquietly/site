@@ -766,7 +766,5 @@ h1 {
 }
 .variable-proximity span {
   display: inline-block;
-  font-variation-settings: "wght" 400;
-  transition: font-variation-settings 0.08s linear;
-  will-change: font-variation-settings;
+  font-variation-settings: "wght" 300;
 }
