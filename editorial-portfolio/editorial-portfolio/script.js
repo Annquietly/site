@@ -1,4 +1,4 @@
-console.log("SCRIPT WORKS");(() => {
+(() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Автоматический год в футере.
@@ -125,94 +125,36 @@ console.log("SCRIPT WORKS");(() => {
     });
   });
 })();
-document.addEventListener("DOMContentLoaded", () => {
-
-  const text = document.querySelector(".magnetic-text");
-
-  if (!text) return;
-
-
-  function splitLetters(element) {
-
-    [...element.childNodes].forEach(node => {
-
-      if (node.nodeType === 3) {
-
-        const fragment = document.createDocumentFragment();
-
-        [...node.textContent].forEach(char => {
-
-          const span = document.createElement("span");
-
-          span.textContent =
-            char === " " ? "\u00A0" : char;
-
-          fragment.appendChild(span);
-
-        });
-
-        node.replaceWith(fragment);
-
-      } else {
-
-        splitLetters(node);
-
+<!-- variable-proximity.html -->
+<div id="stage" style="display:grid;place-items:center;min-height:100vh;"><span class="pres" id="out"></span></div>
+<style>
+  body{ margin:0; background:#0A0A0B; }
+  .pres{ font-family:'Inter',sans-serif; font-size:clamp(44px,8.2vw,110px);
+    line-height:1; letter-spacing:-.02em; color:#F4F2EC; }
+  .pres span{ display:inline-block; font-variation-settings:'wght' 400;
+    transition:font-variation-settings .08s linear; will-change:font-variation-settings; }
+</style>
+<script>
+  const stage = document.getElementById('stage'), el = document.getElementById('out');
+  const text = 'PROXIMITY', radius = 100, wghtMin = 200, wghtMax = 800, falloff = 1.6;
+  [...text].forEach(ch => { const s = document.createElement('span'); s.textContent = ch === ' ' ? '\u00A0' : ch; el.appendChild(s); });
+  const p = { x:-9999, y:-9999, active:false };
+  stage.addEventListener('pointermove', e => { const r = stage.getBoundingClientRect(); p.x = e.clientX - r.left; p.y = e.clientY - r.top; p.active = true; });
+  stage.addEventListener('pointerleave', () => { p.active = false; });
+  // each frame: distance from pointer -> soft falloff -> font weight
+  (function loop(){
+    requestAnimationFrame(loop);
+    const sr = stage.getBoundingClientRect();
+    for (const span of el.children){
+      const r = span.getBoundingClientRect();
+      const cx = (r.left + r.right)/2 - sr.left, cy = (r.top + r.bottom)/2 - sr.top;
+      let force = 0;
+      if (p.active){
+        const d = Math.hypot(cx - p.x, cy - p.y);
+        force = Math.pow(Math.max(0, 1 - d/radius), falloff);
       }
-
-    });
-
-  }
-
-
-  splitLetters(text);
-
-
-  const letters = text.querySelectorAll("span");
-
-
-  document.addEventListener("mousemove", e => {
-
-    letters.forEach(letter => {
-
-      const rect = letter.getBoundingClientRect();
-
-
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-
-
-      const distance = Math.hypot(
-        e.clientX - centerX,
-        e.clientY - centerY
-      );
-
-
-      const radius = 180;
-
-
-      if (distance < radius) {
-
-        const strength = 1 - distance / radius;
-
-
-        const moveX =
-          (centerX - e.clientX) * strength * 0.08;
-
-        const moveY =
-          (centerY - e.clientY) * strength * 0.08;
-
-
-        letter.style.transform =
-          `translate(${moveX}px, ${moveY}px)`;
-
-      } else {
-
-        letter.style.transform = "";
-
-      }
-
-    });
-
-  });
-
-});
+      const wght = wghtMin + (wghtMax - wghtMin) * force;
+      span.style.fontVariationSettings = `'wght' ${wght.toFixed(0)}`;
+    }
+  })();
+</script>
