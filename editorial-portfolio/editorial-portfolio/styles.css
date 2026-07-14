@@ -764,14 +764,9 @@ h1 {
     transform: none !important;
   }
 }
-.variable-text {
-  cursor: default;
-}
-
-.variable-text .letter {
+.variable-proximity span {
   display: inline-block;
-  transition:
-    font-variation-settings .25s ease,
-    transform .25s ease,
-    opacity .25s ease;
+  font-variation-settings: "wght" 400;
+  transition: font-variation-settings 0.08s linear;
+  will-change: font-variation-settings;
 }

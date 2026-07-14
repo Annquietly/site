@@ -125,42 +125,112 @@
     });
   });
 })();
-document.querySelectorAll(".variable-text").forEach(text => {
+const proximityText = document.querySelector(".variable-proximity");
 
-  // Разбиваем текст на буквы
-  text.innerHTML = text.innerHTML.replace(
-    /([^\s<])/g,
-    '<span class="letter">$1</span>'
-  );
+if (proximityText) {
 
-  const letters = text.querySelectorAll(".letter");
+  function wrapLetters(element) {
 
-  document.addEventListener("mousemove", e => {
+    [...element.childNodes].forEach(node => {
+
+      if (node.nodeType === 3) {
+
+        const letters = [...node.textContent].map(char => {
+
+          const span = document.createElement("span");
+
+          span.textContent = char === " " ? "\u00A0" : char;
+
+          return span;
+
+        });
+
+        node.replaceWith(...letters);
+
+      } else if (node.nodeType === 1) {
+
+        wrapLetters(node);
+
+      }
+
+    });
+
+  }
+
+  wrapLetters(proximityText);
+
+
+  const letters = proximityText.querySelectorAll("span");
+
+  let mouse = {
+    x: -9999,
+    y: -9999,
+    active: false
+  };
+
+
+  document.addEventListener("pointermove", e => {
+
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+    mouse.active = true;
+
+  });
+
+
+  document.addEventListener("pointerleave", () => {
+
+    mouse.active = false;
+
+  });
+
+
+  function animate() {
+
+    requestAnimationFrame(animate);
+
 
     letters.forEach(letter => {
 
       const rect = letter.getBoundingClientRect();
 
-      const x = rect.left + rect.width / 2;
-      const y = rect.top + rect.height / 2;
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
 
-      const distance = Math.hypot(
-        e.clientX - x,
-        e.clientY - y
-      );
 
-      const max = 180;
+      let force = 0;
 
-      const strength = Math.max(0, 1 - distance / max);
 
-      const scale = 1 + strength * 0.35;
+      if (mouse.active) {
 
-      letter.style.transform = `scale(${scale})`;
+        const distance = Math.hypot(
+          cx - mouse.x,
+          cy - mouse.y
+        );
 
-      letter.style.opacity = 0.55 + strength * 0.45;
+
+        const radius = 140;
+
+
+        force = Math.max(
+          0,
+          1 - distance / radius
+        );
+
+      }
+
+
+      const weight = 300 + force * 600;
+
+
+      letter.style.fontVariationSettings =
+        `"wght" ${weight}`;
 
     });
 
-  });
+  }
 
-});
+
+  animate();
+
+}
