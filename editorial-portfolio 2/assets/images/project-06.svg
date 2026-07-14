@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#cab3a0"/>
+  <rect x="80" y="80" width="1040" height="740" fill="#f3eadc"/>
+  <ellipse cx="420" cy="500" rx="190" ry="245" fill="#31584c"/>
+  <ellipse cx="760" cy="500" rx="190" ry="245" fill="#d36c44"/>
+  <path d="M420 255v490M760 255v490" stroke="#f3eadc" stroke-width="7"/>
+  <text x="130" y="190" font-family="Georgia,serif" font-size="72" fill="#181818">KINDRED</text>
+  <text x="745" y="190" font-family="Georgia,serif" font-size="72" font-style="italic" fill="#181818">OBJECTS</text>
+</svg>
