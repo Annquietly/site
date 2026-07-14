@@ -127,54 +127,91 @@
 })();
 document.addEventListener("DOMContentLoaded", () => {
 
-  const text = document.querySelector(".variable-proximity");
+  const text = document.querySelector(".magnetic-text");
 
-  if (!text) {
-    console.log("no text found");
-    return;
+  if (!text) return;
+
+
+  function splitLetters(element) {
+
+    [...element.childNodes].forEach(node => {
+
+      if (node.nodeType === 3) {
+
+        const fragment = document.createDocumentFragment();
+
+        [...node.textContent].forEach(char => {
+
+          const span = document.createElement("span");
+
+          span.textContent =
+            char === " " ? "\u00A0" : char;
+
+          fragment.appendChild(span);
+
+        });
+
+        node.replaceWith(fragment);
+
+      } else {
+
+        splitLetters(node);
+
+      }
+
+    });
+
   }
 
 
-  const original = text.innerHTML;
-
-  text.innerHTML = original.replace(
-    /([A-Za-zА-Яа-яЁё])/g,
-    "<span>$1</span>"
-  );
+  splitLetters(text);
 
 
   const letters = text.querySelectorAll("span");
 
 
-  console.log("letters:", letters.length);
-
-
   document.addEventListener("mousemove", e => {
-
 
     letters.forEach(letter => {
 
-      const box = letter.getBoundingClientRect();
+      const rect = letter.getBoundingClientRect();
+
+
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
 
       const distance = Math.hypot(
-        e.clientX - (box.left + box.width/2),
-        e.clientY - (box.top + box.height/2)
+        e.clientX - centerX,
+        e.clientY - centerY
       );
 
 
-      const amount = Math.max(
-        0,
-        1 - distance / 150
-      );
+      const radius = 180;
 
 
-      letter.style.fontVariationSettings =
-        `"wght" ${300 + amount * 600}`;
+      if (distance < radius) {
 
+        const strength = 1 - distance / radius;
+
+
+        const moveX =
+          (centerX - e.clientX) * strength * 0.08;
+
+        const moveY =
+          (centerY - e.clientY) * strength * 0.08;
+
+
+        letter.style.transform =
+          `translate(${moveX}px, ${moveY}px)`;
+
+      } else {
+
+        letter.style.transform = "";
+
+      }
 
     });
-
 
   });
 

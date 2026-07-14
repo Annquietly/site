@@ -764,7 +764,8 @@ h1 {
     transform: none !important;
   }
 }
-.variable-proximity span {
+.magnetic-text span {
   display: inline-block;
-  font-variation-settings: "wght" 300;
+  transition: transform 0.25s cubic-bezier(.2,.8,.2,1);
+  will-change: transform;
 }
