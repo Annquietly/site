@@ -125,32 +125,3 @@
     });
   });
 })();
-<!-- blur-text.html -->
-<span class="blt" id="demo"></span>
-<style>
-  body{ margin:0; background:#0A0A0B; display:grid; place-items:center; min-height:100vh; }
-  .blt{ font-family:'Segoe UI',sans-serif; font-weight:700;
-    font-size:clamp(38px,7vw,88px); letter-spacing:-.025em; line-height:1.04; color:#F4F2EC; }
-  .blt span{ display:inline-block; will-change:filter,opacity,transform; }
-</style>
-<script>
-  const el = document.getElementById('demo');
-  const by = 'words', duration = 900, stagger = 80, blur = 18;
-  const ease = 'cubic-bezier(.22,.61,.36,1)';
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const text = 'Lens before motion.';
-  const tokens = by === 'words' ? text.split(' ') : [...text];
-  const pieces = tokens.map((tok,i) => {
-    const s = document.createElement('span');
-    s.textContent = tok === ' ' ? ' ' : tok;
-    el.appendChild(s);
-    if (by === 'words' && i < tokens.length - 1) el.appendChild(document.createTextNode(' '));
-    return s;
-  });
-  pieces.forEach(p => { p.style.opacity = '0'; p.style.filter = `blur(${blur}px)`; });
-  if (reduce){ pieces.forEach(p => { p.style.opacity='1'; p.style.filter='none'; }); }
-  else pieces.forEach((p,i) => p.animate(
-    [{ opacity:0, filter:`blur(${blur}px)`, transform:'translateY(10px)' },
-     { opacity:1, filter:'blur(0px)', transform:'translateY(0)' }],
-    { duration, delay:i*stagger, easing:ease, fill:'forwards' }));
-</script>
