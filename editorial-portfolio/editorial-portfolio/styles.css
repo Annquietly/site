@@ -8,9 +8,7 @@
   --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
   --sans: "Inter", Arial, sans-serif;
 }
-::selection {
-  background-color: palevioletred;color:#181818
-}
+
 * {
   box-sizing: border-box;
 }
