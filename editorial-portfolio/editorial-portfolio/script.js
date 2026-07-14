@@ -125,36 +125,32 @@
     });
   });
 })();
-<!-- variable-proximity.html -->
-<div id="stage" style="display:grid;place-items:center;min-height:100vh;"><span class="pres" id="out"></span></div>
+<!-- blur-text.html -->
+<span class="blt" id="demo"></span>
 <style>
-  body{ margin:0; background:#0A0A0B; }
-  .pres{ font-family:'Inter',sans-serif; font-size:clamp(44px,8.2vw,110px);
-    line-height:1; letter-spacing:-.02em; color:#F4F2EC; }
-  .pres span{ display:inline-block; font-variation-settings:'wght' 400;
-    transition:font-variation-settings .08s linear; will-change:font-variation-settings; }
+  body{ margin:0; background:#0A0A0B; display:grid; place-items:center; min-height:100vh; }
+  .blt{ font-family:'Segoe UI',sans-serif; font-weight:700;
+    font-size:clamp(38px,7vw,88px); letter-spacing:-.025em; line-height:1.04; color:#F4F2EC; }
+  .blt span{ display:inline-block; will-change:filter,opacity,transform; }
 </style>
 <script>
-  const stage = document.getElementById('stage'), el = document.getElementById('out');
-  const text = 'PROXIMITY', radius = 100, wghtMin = 200, wghtMax = 800, falloff = 1.6;
-  [...text].forEach(ch => { const s = document.createElement('span'); s.textContent = ch === ' ' ? '\u00A0' : ch; el.appendChild(s); });
-  const p = { x:-9999, y:-9999, active:false };
-  stage.addEventListener('pointermove', e => { const r = stage.getBoundingClientRect(); p.x = e.clientX - r.left; p.y = e.clientY - r.top; p.active = true; });
-  stage.addEventListener('pointerleave', () => { p.active = false; });
-  // each frame: distance from pointer -> soft falloff -> font weight
-  (function loop(){
-    requestAnimationFrame(loop);
-    const sr = stage.getBoundingClientRect();
-    for (const span of el.children){
-      const r = span.getBoundingClientRect();
-      const cx = (r.left + r.right)/2 - sr.left, cy = (r.top + r.bottom)/2 - sr.top;
-      let force = 0;
-      if (p.active){
-        const d = Math.hypot(cx - p.x, cy - p.y);
-        force = Math.pow(Math.max(0, 1 - d/radius), falloff);
-      }
-      const wght = wghtMin + (wghtMax - wghtMin) * force;
-      span.style.fontVariationSettings = `'wght' ${wght.toFixed(0)}`;
-    }
-  })();
+  const el = document.getElementById('demo');
+  const by = 'words', duration = 900, stagger = 80, blur = 18;
+  const ease = 'cubic-bezier(.22,.61,.36,1)';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const text = 'Lens before motion.';
+  const tokens = by === 'words' ? text.split(' ') : [...text];
+  const pieces = tokens.map((tok,i) => {
+    const s = document.createElement('span');
+    s.textContent = tok === ' ' ? ' ' : tok;
+    el.appendChild(s);
+    if (by === 'words' && i < tokens.length - 1) el.appendChild(document.createTextNode(' '));
+    return s;
+  });
+  pieces.forEach(p => { p.style.opacity = '0'; p.style.filter = `blur(${blur}px)`; });
+  if (reduce){ pieces.forEach(p => { p.style.opacity='1'; p.style.filter='none'; }); }
+  else pieces.forEach((p,i) => p.animate(
+    [{ opacity:0, filter:`blur(${blur}px)`, transform:'translateY(10px)' },
+     { opacity:1, filter:'blur(0px)', transform:'translateY(0)' }],
+    { duration, delay:i*stagger, easing:ease, fill:'forwards' }));
 </script>
