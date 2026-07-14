@@ -135,7 +135,6 @@ body.is-leaving .page-transition {
 }
 
 .hero-copy {
-  align-self: center;
   position: relative;
   z-index: 2;
 }
