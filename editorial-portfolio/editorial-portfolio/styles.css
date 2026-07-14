@@ -129,8 +129,9 @@ body.is-leaving .page-transition {
 }
 
 .hero {
-  display: grid;
-  grid-template-rows: 1fr auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hero-copy {
