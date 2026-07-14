@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#e7e0d1"/>
-  <rect x="110" y="100" width="980" height="700" fill="#f14c31"/>
-  <rect x="230" y="205" width="740" height="490" fill="#151515"/>
-  <circle cx="600" cy="450" r="170" fill="none" stroke="#e7e0d1" stroke-width="18"/>
-  <circle cx="600" cy="450" r="85" fill="#a9ff73"/>
-  <text x="150" y="165" font-family="Georgia,serif" font-size="60" fill="#181818">FRAME / SPACE</text>
-</svg>

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#1d1d1d"/>
-  <rect x="80" y="80" width="470" height="740" fill="#e9e7e3"/>
-  <rect x="590" y="80" width="530" height="740" fill="#d7aaee"/>
-  <text x="125" y="220" font-family="Georgia,serif" font-size="92" fill="#181818">MONO</text>
-  <text x="125" y="315" font-family="Georgia,serif" font-style="italic" font-size="72" fill="#181818">journal</text>
-  <path d="M650 180l390 500M1040 180L650 680" stroke="#181818" stroke-width="10"/>
-  <circle cx="845" cy="430" r="82" fill="#ffef62"/>
-</svg>
