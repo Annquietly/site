@@ -764,3 +764,12 @@ h1 {
     transform: none !important;
   }
 }
+::selection {
+  background: palevioletred !important;
+  color: #181818 !important;
+}
+
+::-moz-selection {
+  background: palevioletred !important;
+  color: #181818 !important;
+}
