@@ -1,4 +1,4 @@
-(() => {
+console.log("SCRIPT WORKS");(() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Автоматический год в футере.
