@@ -1,9 +1,241 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#dce5ea"/>
-  <rect x="250" y="90" width="700" height="720" rx="44" fill="#181818"/>
-  <rect x="280" y="130" width="640" height="640" rx="26" fill="#f1efe9"/>
-  <path d="M330 580c120-160 240-80 340-210s170-110 200-40" fill="none" stroke="#4b70ff" stroke-width="18" stroke-linecap="round"/>
-  <circle cx="650" cy="390" r="30" fill="#ff6048"/>
-  <text x="330" y="225" font-family="Georgia,serif" font-size="70" fill="#181818">North</text>
-  <text x="330" y="300" font-family="Georgia,serif" font-style="italic" font-size="70" fill="#181818">Notes</text>
-</svg>
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfolio of Anya Russkikh — graphic designer, digital product designer and visual concept creator." />
+  <title>Anya Russkikh — Designer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body data-page="home">
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="home-flower" href="index.html" aria-label="Back to home">✿</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link is-active" href="index.html">Home</a>
+      <a class="nav-link" href="work.html">Work</a>
+      <a class="nav-link" href="about.html">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="background-object shape-ring" data-speed="0.12" aria-hidden="true"></div>
+      <div class="background-object shape-flower" data-speed="-0.08" aria-hidden="true">✦</div>
+      <div class="background-object shape-orbit" data-speed="0.2" aria-hidden="true"></div>
+      <div class="background-object shape-dot" data-speed="-0.15" aria-hidden="true"></div>
+
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Digital products · Visual concepts · AI</p>
+
+        <h1 class="hero-title variable-proximity no-select" data-proximity
+          aria-label="Hello, I’m Anya graphic designer">
+          <span class="hero-title__line proximity-line" data-proximity-text="Hello,"></span>
+
+          <span class="hero-title__line hero-title__name italic proximity-line" data-proximity-text="I’m Anya"></span>
+
+          <span class="hero-title__line proximity-line" data-proximity-text="graphic designer"></span>
+        </h1>
+      </div>
+
+      <div class="hero-bottom reveal reveal-delay-1">
+        <p class="hero-intro">
+          I design digital products and visual concepts with clarity,
+          character, and attention to detail. With more than three years
+          of professional experience, I combine a graphic design foundation
+          with modern tools and AI-assisted workflows.
+        </p>
+
+        <div class="social-links" aria-label="Social links">
+          <a href="https://www.behance.net/anyarusskikh" target="_blank" rel="noreferrer">Behance ↗</a>
+          <a href="https://t.me/annquietlyme/" target="_blank" rel="noreferrer">Telegram ↗</a>
+          <a href="mailto:annquietly@mail.ru">Email ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="selected-work" id="work">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Selected work</p>
+
+        <h2 class="no-select">
+          Projects shaped<br>
+          by <span class="italic">curiosity.</span>
+        </h2>
+      </div>
+
+      <div class="projects-cards">
+        <a class="project-tile reveal" href="work.html#digital-product">
+          <div class="project-tile__image">
+            <img src="assets/images/project-01.svg" alt="Digital product design project">
+          </div>
+
+          <div class="project-tile__content">
+            <div class="project-tile__top">
+              <span class="project-tile__tag">Product design</span>
+              <span class="project-tile__number">01</span>
+            </div>
+
+            <div class="project-tile__bottom">
+              <h3>Digital Product</h3>
+              <p>
+                A clear and thoughtful interface concept built around user needs,
+                structure, and an intuitive visual hierarchy.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-tile reveal" href="work.html#visual-identity">
+          <div class="project-tile__image">
+            <img src="assets/images/project-02.svg" alt="Visual identity project">
+          </div>
+
+          <div class="project-tile__content">
+            <div class="project-tile__top">
+              <span class="project-tile__tag">Graphic design</span>
+              <span class="project-tile__number">02</span>
+            </div>
+
+            <div class="project-tile__bottom">
+              <h3>Visual Identity</h3>
+              <p>
+                A flexible visual language that brings typography, color,
+                composition, and brand character into one coherent system.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-tile reveal" href="work.html#ai-concept">
+          <div class="project-tile__image">
+            <img src="assets/images/project-03.svg" alt="AI-assisted visual concept">
+          </div>
+
+          <div class="project-tile__content">
+            <div class="project-tile__top">
+              <span class="project-tile__tag">AI + Concept</span>
+              <span class="project-tile__number">03</span>
+            </div>
+
+            <div class="project-tile__bottom">
+              <h3>AI Concept</h3>
+              <p>
+                An experimental concept developed through rapid visual exploration,
+                AI tools, and careful art direction.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-tile reveal" href="work.html#interactive-prototype">
+          <div class="project-tile__image">
+            <img src="assets/images/project-04.svg" alt="Interactive prototype">
+          </div>
+
+          <div class="project-tile__content">
+            <div class="project-tile__top">
+              <span class="project-tile__tag">Figma Make</span>
+              <span class="project-tile__number">04</span>
+            </div>
+
+            <div class="project-tile__bottom">
+              <h3>Interactive Prototype</h3>
+              <p>
+                A fast-moving prototype used to test an idea, explore interaction,
+                and turn an early concept into something tangible.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-tile reveal" href="work.html#spatial-experiment">
+          <div class="project-tile__image">
+            <img src="assets/images/project-05.svg" alt="Spatial design experiment">
+          </div>
+
+          <div class="project-tile__content">
+            <div class="project-tile__top">
+              <span class="project-tile__tag">Spline + 3D</span>
+              <span class="project-tile__number">05</span>
+            </div>
+
+            <div class="project-tile__bottom">
+              <h3>Spatial Experiment</h3>
+              <p>
+                A study of depth, movement, and atmosphere created through playful
+                3D composition and interactive thinking.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-tile reveal" href="work.html#editorial-system">
+          <div class="project-tile__image">
+            <img src="assets/images/project-06.svg" alt="Editorial design system">
+          </div>
+
+          <div class="project-tile__content">
+            <div class="project-tile__top">
+              <span class="project-tile__tag">Editorial design</span>
+              <span class="project-tile__number">06</span>
+            </div>
+
+            <div class="project-tile__bottom">
+              <h3>Editorial System</h3>
+              <p>
+                A typography-led layout system balancing expressive composition
+                with rhythm, readability, and consistency.
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-about">
+      <div class="background-object about-cross" data-speed="0.1" aria-hidden="true">✣</div>
+
+      <p class="eyebrow reveal">Approach</p>
+
+      <p class="large-statement reveal no-select">
+        Stay curious.<br>
+        Keep exploring.<br>
+        <span class="italic">Make ideas visible.</span>
+      </p>
+
+      <a class="text-link reveal" href="about.html">More about me ↗</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p class="footer-title no-select">
+        Let’s create something thoughtful.
+      </p>
+    </div>
+
+    <div class="footer-meta">
+      <div class="social-links social-links-footer">
+        <a href="https://www.behance.net/anyarusskikh" target="_blank" rel="noreferrer">Behance ↗</a>
+        <a href="https://t.me/annquietlyme/" target="_blank" rel="noreferrer">Telegram ↗</a>
+        <a href="mailto:annquietly@mail.ru">Email ↗</a>
+      </div>
+
+      <p>Anya Russkikh © <span data-year></span></p>
+    </div>
+  </footer>
+</body>
+
+</html>
