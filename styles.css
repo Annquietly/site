@@ -557,8 +557,8 @@ h1 {
   align-items: end;
   gap: 40px;
   padding: clamp(90px, 12vw, 180px) var(--page-gutter) 42px;
-  color: var(--bg);
-  background: var(--ink);
+  
+  
 }
 
 .footer-title {
