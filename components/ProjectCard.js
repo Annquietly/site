@@ -1,0 +1,2 @@
+// PROJECT CARD COMPONENT
+window.renderProjectCard = (project, index) => `<a class="project-tile reveal" href="project.html?id=${project.id}" data-category="${project.category}"><div class="project-tile__image"><img src="${project.cover}" alt="${project.title}"></div><div class="project-tile__content"><div class="project-tile__top"><span class="project-tile__tag">${project.category}</span><span class="project-tile__number">${String(index + 1).padStart(2, "0")}</span></div><div class="project-tile__bottom"><h3>${project.title}</h3><p>${project.summary}</p></div></div></a>`;

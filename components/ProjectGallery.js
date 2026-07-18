@@ -1,0 +1,2 @@
+// GALLERY COMPONENT
+window.renderProjectGallery = (project) => `<section class="project-gallery reveal" data-gallery><div class="project-gallery__frame" data-gallery-frame><img src="${project.images[0]}" alt="${project.title}" data-gallery-image><button class="gallery-cursor" type="button" aria-label="Next image" data-gallery-cursor>→</button></div><p class="gallery-count"><span data-gallery-current>1</span> of ${project.images.length}</p></section>`;

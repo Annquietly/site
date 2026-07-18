@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#ffcb59"/>
+  <path d="M0 130C260 20 380 230 600 130S950 20 1200 140V0H0Z" fill="#e866ff"/>
+  <path d="M0 790c260-110 380 100 600 0s350-110 600 10v100H0Z" fill="#6f69ff"/>
+  <circle cx="600" cy="450" r="220" fill="#f4f0e8" stroke="#181818" stroke-width="8"/>
+  <path d="M465 450c70-120 200-120 270 0M465 450c70 120 200 120 270 0" fill="none" stroke="#181818" stroke-width="9"/>
+  <text x="410" y="165" font-family="Georgia,serif" font-size="62" fill="#181818">SOFT SIGNAL</text>
+</svg>

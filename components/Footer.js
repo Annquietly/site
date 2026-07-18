@@ -1,0 +1,2 @@
+// FOOTER COMPONENT
+window.renderFooter = () => `<footer class="site-footer"><div class="footer-links social-links social-links-footer"><a href="https://www.behance.net/anyarusskikh" target="_blank" rel="noreferrer">Behance ↗</a><a href="https://t.me/annquietlyme/" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:annquietly@mail.ru">Email ↗</a><a href="https://ru.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div><p class="footer-copyright">Anna Russkikh © <span data-year></span></p></footer>`;
