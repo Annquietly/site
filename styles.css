@@ -757,13 +757,6 @@ h1 {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms 
-    animation-iteration-count: 1 
-    transition-duration: 0.01ms 
-  }
 
   .background-object {
     transform: none;
