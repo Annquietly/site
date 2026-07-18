@@ -265,11 +265,11 @@ h1 {
   transform: rotate(17deg);
 }
 .shape-orbit {
-  left: 7vw;
+  left: 35vw;
   bottom: 13vh;
   width: clamp(85px, 10vw, 160px);
   height: clamp(28px, 3vw, 48px);
-  border: 1px solid rgba(24, 24, 24, 0.45);
+  border: 1px solid rgba(216, 15, 15, 0.45);
   border-radius: 50%;
   transform: rotate(-28deg);
 }
@@ -290,14 +290,14 @@ h1 {
 .home-about,
 .contact-section {
   position: relative;
-  padding: clamp(100px, 13vw, 210px) var(--page-gutter);
+  padding: clamp(100px, 1vw, 10px) var(--page-gutter);
 }
 
 .section-heading {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: start;
-  margin-bottom: clamp(60px, 9vw, 130px);
+  margin-bottom: clamp(60px, 1vw, 130px);
 }
 
 .section-heading h2 {
@@ -382,12 +382,7 @@ h1 {
 }
 
 .home-about {
-  min-height: 90svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-top: 1px solid var(--line);
-  overflow: hidden;
+  
 }
 
 .large-statement {
@@ -778,7 +773,7 @@ h1 {
 
 
 .selected-work {
-  padding: clamp(100px, 13vw, 210px) var(--page-gutter);
+  padding: clamp(111px, 13vw, 2px) var(--page-gutter);
 }
 
 .projects-cards {
