@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="About Anya Russkikh." />
-    <title>About — Anya Russkikh</title>
+    <meta name="description" content="About Anya Russkikh." data-i18n-attr="content:meta.aboutDescription" />
+    <title data-i18n="meta.aboutTitle">About — Anya Russkikh</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,8 +12,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script src="data/translations.js" defer></script>
     <script src="components/Header.js" defer></script>
     <script src="components/Footer.js" defer></script>
+    <script src="js/i18n.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body data-page="about">
@@ -21,47 +23,40 @@
     <div data-header></div>
     <main>
       <section class="about-grid">
+        <figure class="about-photo reveal">
+          <img src="assets/photo/im123.png" alt="Anna Russkikh" />
+        </figure>
         <div class="about-copy reveal reveal-delay-1">
-          <p>
+          <p data-i18n="about.description">
             I have been passionate about design for over five years and have
             more than three years of professional experience. I began with
             graphic design, earned a Bachelor’s degree in Graphic Design, and
             completed additional courses to expand my knowledge across different
             design disciplines.
           </p>
-          <p>
-            Today, I focus on digital products and visual concepts. I care about
-            clear structure, strong composition, thoughtful details, and design
-            that feels intuitive rather than overexplained.
-          </p>
-          <p>
-            I also integrate AI tools into my workflow to explore ideas faster,
-            improve efficiency, and open up new creative directions while
-            keeping the final decisions intentional and human.
-          </p>
         </div>
       </section>
       <section class="experience-section">
         <div class="section-heading reveal">
-          <p class="eyebrow">Background</p>
+          <p class="eyebrow" data-i18n="about.background">Background</p>
         </div>
         <div class="experience-list">
           <div class="experience-row reveal">
-            <span>Professional practice</span
-            ><span>Graphic &amp; digital design</span><span>3+ years</span>
+            <span data-i18n="about.practice">Professional practice</span
+            ><span data-i18n="about.practiceType">Graphic &amp; digital design</span><span data-i18n="about.practiceYears">3+ years</span>
           </div>
           <div class="experience-row reveal">
-            <span>Design journey</span
-            ><span>Learning, creating &amp; exploring</span
-            ><span>5+ years</span>
+            <span data-i18n="about.journey">Design journey</span
+            ><span data-i18n="about.journeyType">Learning, creating &amp; exploring</span
+            ><span data-i18n="about.journeyYears">5+ years</span>
           </div>
           <div class="experience-row reveal">
-            <span>Bachelor’s degree</span><span>Graphic Design</span
-            ><span>Completed</span>
+            <span data-i18n="about.degree">Bachelor’s degree</span><span data-i18n="about.degreeType">Graphic Design</span
+            ><span data-i18n="about.completed">Completed</span>
           </div>
           <div class="experience-row reveal">
-            <span>Additional education</span
-            ><span>Courses across design disciplines</span><span>Ongoing</span>
+            <span data-i18n="about.education">Additional education</span
+            ><span data-i18n="about.educationType">Courses across design disciplines</span><span data-i18n="about.ongoing">Ongoing</span>
           </div>
         </div>
       </section>

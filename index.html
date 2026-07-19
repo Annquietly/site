@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
       content="Portfolio of Anya Russkikh — graphic designer, digital product designer and visual concept creator."
+      data-i18n-attr="content:meta.homeDescription"
     />
-    <title>Anya Russkikh — Designer</title>
+    <title data-i18n="meta.homeTitle">Anya Russkikh — Designer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,9 +17,11 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="assets/data/projects.js" defer></script>
+    <script src="data/translations.js" defer></script>
     <script src="components/Header.js" defer></script>
     <script src="components/Footer.js" defer></script>
     <script src="components/ProjectCard.js" defer></script>
+    <script src="js/i18n.js" defer></script>
     <script src="script.js" defer></script>
   </head>
   <body data-page="home">
@@ -26,77 +29,78 @@
     <div data-header></div>
     <main>
       <section class="hero" id="home">
-        <div
-          class="background-object shape-flower"
-          data-speed="-0.08"
-          aria-hidden="true"
-        ></div>
-        <div
-          class="background-object shape-orbit"
-          data-speed="0.1"
-          aria-hidden="true"
-        ></div>
+      
         <div class="hero-photos" aria-hidden="true">
           <img
             class="hero-photo hero-photo--portrait"
             src="assets/photo/im123.png"
             alt=""
-            data-mouse-depth="0.028"
+            data-mouse-depth="0.08"
           /><img
             class="hero-photo hero-photo--magazine"
             src="assets/photo/12dw.png"
             alt=""
-            data-mouse-depth="0.055"
+            data-mouse-depth="0.13"
           /><img
             class="hero-photo hero-photo--laptop"
             src="assets/photo/Group%2013019svsv.png"
             alt=""
-            data-mouse-depth="0.042"
+            data-mouse-depth="0.1"
           /><img
             class="hero-photo hero-photo--phones"
             src="assets/photo/1342.png"
             alt=""
-            data-mouse-depth="0.065"
+            data-mouse-depth="0.15"
           />
         </div>
         <div class="hero-copy reveal">
-          <p class="eyebrow">Open to collaboration · 2026</p>
+          <p class="eyebrow" data-i18n="home.eyebrow">Open to collaboration · 2026</p>
           <h1
             class="hero-title variable-proximity no-select"
             data-proximity
+            data-i18n-attr="aria-label:home.titleAria"
             aria-label="Hello, I’m Anya graphic designer"
           >
             <span
               class="hero-title__line proximity-line"
+              data-i18n-proximity="home.hello"
               data-proximity-text="Hello,"
             ></span
             ><span
               class="hero-title__line italic proximity-line"
+              data-i18n-proximity="home.name"
               data-proximity-text="I’m Anya"
             ></span
             ><span
               class="hero-title__line proximity-line"
+              data-i18n-proximity="home.role"
               data-proximity-text="graphic designer"
             ></span>
           </h1>
         </div>
         <div class="hero-bottom reveal reveal-delay-1">
-          <p class="hero-intro">
+          <p class="hero-intro" data-i18n="home.intro">
             I design digital products and visual concepts with clarity,
             character, and attention to detail. With more than three years of
             professional experience, I combine a graphic design foundation with
             modern tools and AI-assisted workflows.
           </p>
+          <div class="hero-social social-links">
+            <a href="https://www.behance.net/anyarusskikh" target="_blank" rel="noreferrer"><span data-i18n="links.behance">Behance</span><span data-link-arrow></span></a>
+            <a href="https://t.me/annquietlyme/" target="_blank" rel="noreferrer"><span data-i18n="links.telegram">Telegram</span><span data-link-arrow></span></a>
+            <a href="mailto:annquietly@mail.ru"><span data-i18n="links.email">Email</span><span data-link-arrow></span></a>
+            <a href="https://ru.linkedin.com/" target="_blank" rel="noreferrer"><span data-i18n="links.linkedin">LinkedIn</span><span data-link-arrow></span></a>
+          </div>
         </div>
       </section>
       <section class="selected-work selected-work--home" id="work">
         <div class="section-heading reveal">
-          <p class="eyebrow">Selected work</p>
+          <p class="eyebrow" data-i18n="home.selectedWork">Selected work</p>
         </div>
         <div class="projects-cards" data-home-project-cards></div>
       </section>
       <section class="home-work-more">
-        <a class="text-link reveal" href="work.html">More ↗</a>
+        <a class="text-link reveal" href="work.html"><span data-i18n="home.more">More</span><span data-link-arrow></span></a>
       </section>
     </main>
     <div data-footer></div>

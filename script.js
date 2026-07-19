@@ -5,6 +5,9 @@
   const page = document.body.dataset.page;
   document.querySelector('[data-header]')?.replaceWith(document.createRange().createContextualFragment(window.renderHeader?.(page)));
   document.querySelector('[data-footer]')?.replaceWith(document.createRange().createContextualFragment(window.renderFooter?.()));
+  document.querySelectorAll('[data-link-arrow]').forEach((node) => {
+    node.replaceWith(document.createRange().createContextualFragment(window.linkArrow || '↗'));
+  });
 
   // PROJECT DATA
   const projects = window.projects || [];
@@ -20,6 +23,7 @@
     const renderCards = (filter = 'All Projects') => {
       const filtered = filter === 'All Projects' ? projects : projects.filter((project) => project.category === filter);
       workCards.innerHTML = filtered.map((project, index) => window.renderProjectCard(project, index)).join('');
+      window.i18n?.apply();
     };
     renderCards();
 
@@ -38,11 +42,16 @@
     const id = new URLSearchParams(window.location.search).get('id');
     const project = projects.find((item) => item.id === id);
     if (!project) {
-      projectPage.innerHTML = '<section class="project-not-found"><p class="eyebrow">Project not found</p><a class="text-link" href="work.html">Back to Work ↗</a></section>';
+      projectPage.innerHTML = `<section class="project-not-found"><p class="eyebrow" data-i18n="project.notFound">Project not found</p><a class="text-link" href="work.html"><span data-i18n="project.backToWork">Back to Work</span>${window.linkArrow}</a></section>`;
     } else {
-      document.title = `${project.title} — Anya Russkikh`;
-      projectPage.innerHTML = `<section class="project-hero"><h1 class="reveal">${project.title}</h1><p class="project-meta reveal reveal-delay-1">Duration ${project.duration} <span>/</span> Year ${project.year}</p></section>${window.renderProjectGallery(project)}<section class="project-description"><div class="project-description__item reveal"><p class="eyebrow">What was done</p><p>${project.description.done}</p></div><div class="project-description__item reveal"><p class="eyebrow">Task</p><p>${project.description.task}</p></div><div class="project-description__item reveal"><p class="eyebrow">Result</p><p>${project.description.result}</p></div></section>
-      <section class="latest-work reveal"><p class="eyebrow">Latest Work</p><a class="text-link" href="work.html">Work ↗</a></section>`;
+      const setProjectTitle = () => {
+        document.title = `${window.i18n?.t(`projects.${project.id}.title`) || project.title} - Anna Russkikh`;
+      };
+      setProjectTitle();
+      window.addEventListener('languagechange', setProjectTitle);
+
+      projectPage.innerHTML = `<section class="project-hero"><h1 class="reveal" data-i18n="projects.${project.id}.title">${project.title}</h1><p class="project-meta reveal reveal-delay-1"><span data-i18n="project.duration">Duration</span> ${project.duration} <span>/</span> <span data-i18n="project.year">Year</span> ${project.year}</p></section>${window.renderProjectGallery(project)}<section class="project-description"><div class="project-description__item reveal"><p class="eyebrow" data-i18n="project.done">What was done</p><p data-i18n="projects.${project.id}.done">${project.description.done}</p></div><div class="project-description__item reveal"><p class="eyebrow" data-i18n="project.task">Task</p><p data-i18n="projects.${project.id}.task">${project.description.task}</p></div><div class="project-description__item reveal"><p class="eyebrow" data-i18n="project.result">Result</p><p data-i18n="projects.${project.id}.result">${project.description.result}</p></div></section>
+      <section class="latest-work reveal"><p class="eyebrow" data-i18n="project.latestWork">Latest Work</p><a class="text-link" href="work.html"><span data-i18n="project.work">Work</span>${window.linkArrow}</a></section>`;
 
       // GALLERY
       const image = projectPage.querySelector('[data-gallery-image]');
@@ -67,7 +76,7 @@
         galleryCursor.style.left = `${event.clientX - rectangle.left}px`;
         galleryCursor.style.top = `${event.clientY - rectangle.top}px`;
         galleryCursor.textContent = isLeftSide ? '←' : '→';
-        galleryCursor.setAttribute('aria-label', isLeftSide ? 'Previous image' : 'Next image');
+        galleryCursor.setAttribute('aria-label', window.i18n?.t(isLeftSide ? 'project.previousImage' : 'project.nextImage') || (isLeftSide ? 'Previous image' : 'Next image'));
       });
 
       galleryCursor.addEventListener('click', () => setImage(imageIndex + (isLeftSide ? -1 : 1)));
@@ -79,6 +88,8 @@
     }
   }
 
+  window.i18n?.init();
+
   // HOME PHOTO PARALLAX
   const mousePhotos = [...document.querySelectorAll('[data-mouse-depth]')];
   if (!reduceMotion && mousePhotos.length && window.matchMedia('(pointer: fine)').matches) {
@@ -87,8 +98,8 @@
       const offsetY = event.clientY / window.innerHeight - 0.5;
       mousePhotos.forEach((photo) => {
         const depth = Number(photo.dataset.mouseDepth);
-        photo.style.setProperty('--mouse-x', `${offsetX * depth * 100}px`);
-        photo.style.setProperty('--mouse-y', `${offsetY * depth * 100}px`);
+        photo.style.setProperty('--mouse-x', `${offsetX * depth * 180}px`);
+        photo.style.setProperty('--mouse-y', `${offsetY * depth * 180}px`);
       });
     }, { passive: true });
   }
