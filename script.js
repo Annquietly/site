@@ -41,7 +41,8 @@
       projectPage.innerHTML = '<section class="project-not-found"><p class="eyebrow">Project not found</p><a class="text-link" href="work.html">Back to Work ↗</a></section>';
     } else {
       document.title = `${project.title} — Anya Russkikh`;
-      projectPage.innerHTML = `<section class="project-hero"><h1 class="reveal">${project.title}</h1><p class="project-meta reveal reveal-delay-1">Duration ${project.duration} <span>/</span> Year ${project.year}</p></section>${window.renderProjectGallery(project)}<section class="project-description"><div class="project-description__item reveal"><p class="eyebrow">What was done</p><p>${project.description.done}</p></div><div class="project-description__item reveal"><p class="eyebrow">Task</p><p>${project.description.task}</p></div><div class="project-description__item reveal"><p class="eyebrow">Result</p><p>${project.description.result}</p></div></section><section class="latest-work reveal"><p class="eyebrow">Latest Work</p><a class="text-link" href="work.html">Work ↗</a></section>`;
+      projectPage.innerHTML = `<section class="project-hero"><h1 class="reveal">${project.title}</h1><p class="project-meta reveal reveal-delay-1">Duration ${project.duration} <span>/</span> Year ${project.year}</p></section>${window.renderProjectGallery(project)}<section class="project-description"><div class="project-description__item reveal"><p class="eyebrow">What was done</p><p>${project.description.done}</p></div><div class="project-description__item reveal"><p class="eyebrow">Task</p><p>${project.description.task}</p></div><div class="project-description__item reveal"><p class="eyebrow">Result</p><p>${project.description.result}</p></div></section>
+      <section class="latest-work reveal"><p class="eyebrow">Latest Work</p><a class="text-link" href="work.html">Work ↗</a></section>`;
 
       // GALLERY
       const image = projectPage.querySelector('[data-gallery-image]');
