@@ -232,7 +232,7 @@ body.is-leaving .page-transition {
 }
 
 .eyebrow {
-  margin: 0 0 22px;
+  margin: 0 0 20px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -732,8 +732,19 @@ h1 {
 }
 
 @media (max-width: 900px) {
+
+
+
+
   :root {
     --header-height: 72px;
+  }
+  .eyebrow {
+    margin: -50px 0 122px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
   }
 
   .home-flower {
@@ -1091,22 +1102,13 @@ h1 {
 }
 
 @media (max-width: 900px) {
-  .hero-title {
-    font-size: clamp(58px, 13vw, 110px);
-    line-height: 0.9;
-  }
-
   .hero-title__name {
     margin-left: clamp(15px, 4vw, 45px);
   }
 }
 
 @media (max-width: 560px) {
-  .hero-title {
-    font-size: clamp(46px, 14vw, 72px);
-    line-height: 0.94;
-    letter-spacing: -0.045em;
-  }
+
 
   .hero-title__line {
     white-space: normal;
@@ -1484,7 +1486,7 @@ h1 {
   padding-bottom: clamp(32px, 5vw, 70px);
   border-top: 0;
 }
-.latest-work .eyebrow {
+.latest-work {
   margin: 0;
 }
 .latest-work .text-link {
@@ -1532,6 +1534,7 @@ body[data-page="work"] .selected-work {
 }
 
 @media (max-width: 900px) {
+
   .project-description {
     grid-template-columns: 1fr;
   }
@@ -1579,7 +1582,7 @@ body[data-page="work"] .selected-work {
 
   .hero-photo--portrait {
     left: 4%;
-    top: calc(var(--header-height) + 80px);
+    top: calc(var(--header-height) + 30px);
     width: clamp(78px, 12vw, 132px);
   }
 
@@ -1623,6 +1626,19 @@ body[data-page="work"] .selected-work {
 }
 
 @media (max-width: 560px) {
+
+  .hero-title {
+    font-size: clamp(40px, 2vw, 150px);
+  }
+
+
+  .eyebrow {
+    margin: -50px 0 122px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
   .project-filters {
     gap: 24px;
     margin-right: calc(var(--page-padding) * -1);
@@ -1657,8 +1673,7 @@ body[data-page="work"] .selected-work {
   }
 
   .hero-photo--portrait {
-    top: calc(var(--header-height) + 85px);
-    left: 4%;
+    top: calc(var(--header-height) + 30px);
     width: 74px;
   }
 
@@ -1686,5 +1701,10 @@ body[data-page="work"] .selected-work {
   }
   .footer-links {
     justify-content: flex-start;
+  }
+}
+@media (min-width: 561px) and (max-width: 900px) {
+  .hero-title {
+    font-size: clamp(50px, 2vw, 110px);
   }
 }
