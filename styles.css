@@ -220,8 +220,8 @@ body.is-leaving .page-transition {
 
 .hero-photo--laptop {
   right: 5%;
-  bottom: 21%;
-  width: clamp(220px, 29vw, 470px);
+  bottom: 3%;
+  width: clamp(220px, 25vw, 470px);
 }
 
 .hero-photo--phones {
@@ -1593,7 +1593,7 @@ body[data-page="work"] .selected-work {
   }
 
   .about-photo {
-    grid-row: 1;
+    grid-row: 1;hero
     justify-self: start;
     max-width: 220px;
   }
@@ -1605,7 +1605,7 @@ body[data-page="work"] .selected-work {
   .selected-work,
   .experience-section,
   .about-grid {
-    padding-top: clamp(48px, 8vw, 72px);
+    padding-top: clamp(80px, 8vw, 72px);
     padding-bottom: clamp(48px, 8vw, 72px);
   }
 
