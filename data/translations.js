@@ -162,7 +162,7 @@ window.translations = {
       titleAria: "Hello, I’m Anya graphic designer",
       hello: "Hello,",
       name: "I’m Anya",
-      role: "graphic designer",
+      role: "graphic\ndesigner",
       intro:
         "I design digital products and visual concepts with clarity, character, and attention to detail. With more than three years of professional experience, I combine a graphic design foundation with modern tools and AI-assisted workflows.",
       selectedWork: "Selected work",
