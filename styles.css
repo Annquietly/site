@@ -1627,11 +1627,6 @@ body[data-page="work"] .selected-work {
 
 @media (max-width: 560px) {
 
-  .hero-title {
-    font-size: clamp(40px, 2vw, 150px);
-  }
-
-
   .eyebrow {
     margin: -50px 0 122px;
     font-size: 12px;
@@ -1703,6 +1698,14 @@ body[data-page="work"] .selected-work {
     justify-content: flex-start;
   }
 }
+
+
+@media (max-width: 560px) {
+  .hero-title {
+    font-size: clamp(35px, 2vw, 150px);
+  }
+}
+
 @media (min-width: 561px) and (max-width: 900px) {
   .hero-title {
     font-size: clamp(50px, 2vw, 110px);
