@@ -246,6 +246,22 @@ body.is-leaving .page-transition {
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
+.eyebrow2 {
+  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.eyebrow3 {
+  margin: 0 0 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
 
 h1,
 h2,
@@ -742,18 +758,20 @@ h1 {
 @media (max-width: 900px) {
 
 
-
-
   :root {
     --header-height: 72px;
   }
   .eyebrow {
-    margin: -50px 0 122px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    margin: -50px 0 50px;
   }
+
+  .eyebrow2 {
+    margin: 0px 0 0px;
+  }
+  .eyebrow3 {
+    margin: 70px 0 50px;
+  }
+
 
   .home-flower {
     width: 40px;
@@ -1616,7 +1634,7 @@ body[data-page="work"] .selected-work {
   .selected-work,
   .experience-section,
   .about-grid {
-    padding-top: clamp(80px, 8vw, 72px);
+    padding-top: clamp(0px, 3vw, 22px);
     padding-bottom: clamp(48px, 8vw, 72px);
   }
 
